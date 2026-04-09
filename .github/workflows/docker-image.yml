@@ -35,5 +35,8 @@ jobs:
         with:
           context: .
           push: true
+          tags: |
+            ${{ vars.DOCKER_USER }}/ci:latest
+            ${{ vars.DOCKER_USER }}/ci:${{ github.sha }}
           outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry' }}
           
