@@ -1,0 +1,11 @@
+---
+services:
+  app:
+    container_name: abusedb
+    image: mp0185/abuseidp:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./config:/app/config      # Synchronize the local config directory with the container
+      - ./logs:/app/logs          # Synchronize the local logs directory with the container
+    restart: always
