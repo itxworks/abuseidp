@@ -1,0 +1,14 @@
+services:
+  app:
+    container_name: abusedb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./config:/app/config      # Synchronize the local config directory with the container
+      - ./logs:/app/logs          # Synchronize the local logs directory with the container
+    #environment:
+    #  - ENV_VAR_1=example_value   # Add any environment variables your app may require
+    restart: always
